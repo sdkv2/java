@@ -104,18 +104,16 @@ public class MovieDatabase {
 
     // Method to find the number of years between the oldest and newest movie
     public static int getYearsBetweenOldestAndNewest(List<Movie> movies) {
-        // Get the min and max year. We could use an arbritarlily large/small numbers instead of Integer.MAX_VALUE and Integer.MIN_VALUE
-        // but this is more robust in case we have a movie from the year 2147483647 or -2147483648 (quite unlikely)
-        int minYear = Integer.MAX_VALUE;
-        int maxYear = Integer.MIN_VALUE;
-        for (Movie movie : movies) {
-            if (movie.getYear() < minYear) {
-                minYear = movie.getYear();
+        // Get the min and max year.
+        List<Movie> x = movies;
+        Collections.sort(x, new Comparator<Movie>() {
+            public int compare(Movie m1, Movie m2) {
+                return m2.getYear() - m1.getYear();
             }
-            if (movie.getYear() > maxYear) {
-                maxYear = movie.getYear();
-            }
-        }
-        return maxYear - minYear;
+        });
+        int shortest = (x.get(0)).getYear(); 
+        int longest = (x.get(x.size()-1)).getYear();
+        return longest - shortest;
+
     }
 }
