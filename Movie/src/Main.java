@@ -13,19 +13,19 @@ public class Main {
             System.out.println(movie.toString());
         }
 
-        Movie lowestRatedSciFi = Movie.getLowestRatedSciFi(movies);
+        Movie lowestRatedSciFi = MovieDatabase.getLowestRatedSciFi(movies);
         System.out.println("\nLowest-rated Sci-Fi movie: " + lowestRatedSciFi.getTitle());
 
 
-        Movie fifthMostRecentPG = Movie.getFifthMostRecentPG(movies);
+        Movie fifthMostRecentPG = MovieDatabase.getFifthMostRecentPG(movies);
         System.out.println("\nFifth most recent 'PG' rated movie: " + fifthMostRecentPG.getTitle());
 
 
-        Movie longestNameMovie = Movie.getMovieWithLongestName(movies);
+        Movie longestNameMovie = MovieDatabase.getMovieWithLongestName(movies);
         System.out.println("\nMovie with the longest name: " + longestNameMovie.getTitle());
 
 
-        int yearsDifference = Movie.getYearsBetweenOldestAndNewest(movies);
+        int yearsDifference = MovieDatabase.getYearsBetweenOldestAndNewest(movies);
         System.out.println("\nNumber of years between oldest and newest movie: " + yearsDifference);
     }
 }
